@@ -2,4 +2,5 @@
   <Project Path="Part1.1/Part1.1.csproj" />
   <Project Path="Part1.2/Part1.2.csproj" />
   <Project Path="Part1.3/Part1.3.csproj" />
+  <Project Path="Part1.4/Part1.4.csproj" />
 </Solution>
