@@ -1,0 +1,14 @@
+[
+  {
+    "ProductID": 101,
+    "Name": "Laptop",
+    "Category": "Electronics",
+    "Price": 799.99
+  },
+  {
+    "ProductID": 102,
+    "Name": "Keyboard",
+    "Category": "Electronics",
+    "Price": 59.99
+  }
+]

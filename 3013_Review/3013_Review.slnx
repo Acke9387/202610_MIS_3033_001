@@ -7,4 +7,6 @@
   <Project Path="Part2.2/Part2.2.csproj" Id="e0331918-7cf5-434f-989b-44375198aed1" />
   <Project Path="Part2.4.1/Part2.4.1.csproj" Id="b1b36b79-3d1b-461f-b1ab-a20ef0503d61" />
   <Project Path="Part2.4/Part2.4.csproj" Id="dc6ff045-cc96-4bba-823c-88432340c77c" />
+  <Project Path="Part3.1/Part3.1.csproj" Id="9d8f82ca-592a-4767-8a68-06cef1d94bf7" />
+  <Project Path="Part3.3/Part3.3.csproj" Id="3411f262-59a0-45eb-a658-7ae57081bb06" />
 </Solution>
