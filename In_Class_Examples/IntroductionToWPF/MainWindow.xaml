@@ -1,0 +1,16 @@
+﻿<Window x:Class="IntroductionToWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntroductionToWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFC82E2E">
+        <Button Content="Add" HorizontalAlignment="Left" Margin="213,0,0,0" VerticalAlignment="Center" Height="56" Width="110" Click="Button_Click" IsDefault="True" />
+        <Label Content="Label" HorizontalAlignment="Left" Margin="228,363,0,0" VerticalAlignment="Top" Height="33" Width="60" Background="#FFFCFCFC"/>
+        <TextBox x:Name="txtFood" HorizontalAlignment="Left" Margin="203,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Label Content="Favorite Food" HorizontalAlignment="Left" Margin="106,109,0,0" VerticalAlignment="Top" Background="#FFF4E5E5"/>
+        <ListBox x:Name="lstFoods" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="472,0,0,0"/>
+    </Grid>
+</Window>
