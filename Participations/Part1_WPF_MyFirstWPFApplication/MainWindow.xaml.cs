@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace Part1_WPF_MyFirstWPFApplication
             InitializeComponent();
 
             // Read in the data file and populate the listbox
+            string jsonFromFile = File.ReadAllText("products.json");
 
 
         }
