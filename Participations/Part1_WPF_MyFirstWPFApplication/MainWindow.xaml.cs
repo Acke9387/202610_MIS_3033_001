@@ -24,7 +24,12 @@ namespace Part1_WPF_MyFirstWPFApplication
 
             // Read in the data file and populate the listbox
             string jsonFromFile = File.ReadAllText("products.json");
+            List<Product> products = JsonConvert.DeserializeObject<List<Product>>(jsonFromFile);
 
+            foreach (Product product in products)
+            {
+                lstProducts.Items.Add(product);
+            }
 
         }
 
