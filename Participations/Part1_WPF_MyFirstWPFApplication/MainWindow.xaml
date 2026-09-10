@@ -1,0 +1,21 @@
+﻿<Window x:Class="Part1_WPF_MyFirstWPFApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Part1_WPF_MyFirstWPFApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="lstProducts" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="519,0,0,0"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="162,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="82,44,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCategory" HorizontalAlignment="Left" Margin="162,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Category" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="162,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="82,140,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="184,179,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnAdd_Click"/>
+        <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="296,377,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnExport_Click"/>
+
+    </Grid>
+</Window>
