@@ -19,19 +19,27 @@ namespace Part1_WPF_MyFirstWPFApplication
     public partial class MainWindow : Window
     {
         List<Product> filteredProducts = new List<Product>();
+        List<Product> products = new List<Product>();
         public MainWindow()
         {
             InitializeComponent();
 
             // Read in the data file and populate the listbox
             string jsonFromFile = File.ReadAllText("products.json");
-            List<Product> products = JsonConvert.DeserializeObject<List<Product>>(jsonFromFile);
+            products = JsonConvert.DeserializeObject<List<Product>>(jsonFromFile);
+
+            cboCategories.Items.Add("All Categories");
 
             foreach (Product product in products)
             {
                 lstProducts.Items.Add(product);
+                if (cboCategories.Items.Contains(product.Category) == false)
+                {
+                    cboCategories.Items.Add(product.Category); 
+                }
             }
 
+            cboCategories.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -58,6 +66,21 @@ namespace Part1_WPF_MyFirstWPFApplication
             File.WriteAllText("products-export.json", jsonToWriteToFile);
 
             MessageBox.Show("Products exported to products-export.json");
+        }
+
+        private void cboCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lstProducts.Items.Clear();
+
+            string selectedCategory = (string)cboCategories.SelectedItem.ToString();
+
+            foreach (Product p in products)
+            {
+                if (p.Category == selectedCategory || selectedCategory == "All Categories")
+                {
+                    lstProducts.Items.Add(p);
+                }
+            }
         }
     }
 }

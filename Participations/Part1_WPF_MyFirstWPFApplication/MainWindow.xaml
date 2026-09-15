@@ -16,6 +16,8 @@
         <Label Content="Price" HorizontalAlignment="Left" Margin="82,140,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="184,179,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnAdd_Click"/>
         <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="296,363,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnExport_Click" />
+        <Label x:Name="lblTitle" Content="Select a Category" HorizontalAlignment="Left" Margin="334,28,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboCategories" HorizontalAlignment="Left" Margin="353,59,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboCategories_SelectionChanged"/>
 
     </Grid>
 </Window>
