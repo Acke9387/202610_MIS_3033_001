@@ -18,6 +18,7 @@ namespace Part1_WPF_MyFirstWPFApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Product> filteredProducts = new List<Product>();
         public MainWindow()
         {
             InitializeComponent();
@@ -36,8 +37,16 @@ namespace Part1_WPF_MyFirstWPFApplication
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             // Get the values from the textboxes and create a new object to add to the listbox
+            Product newProduct = new Product();
+            newProduct.Name = txtName.Text;
+            newProduct.Category = txtCategory.Text;
+            newProduct.Price = double.Parse(txtPrice.Text);
 
+            lstProducts.Items.Add(newProduct);
 
+            txtName.Clear();
+            txtCategory.Clear();
+            txtPrice.Clear();
         }
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
@@ -46,7 +55,9 @@ namespace Part1_WPF_MyFirstWPFApplication
 
             string jsonToWriteToFile = JsonConvert.SerializeObject(lstProducts.Items, Formatting.Indented);
 
+            File.WriteAllText("products-export.json", jsonToWriteToFile);
 
+            MessageBox.Show("Products exported to products-export.json");
         }
     }
 }

@@ -15,7 +15,7 @@
         <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="162,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Price" HorizontalAlignment="Left" Margin="82,140,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="184,179,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnAdd_Click"/>
-        <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="296,377,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnExport_Click"/>
+        <Button x:Name="btnExport" Content="Export" HorizontalAlignment="Left" Margin="296,363,0,0" VerticalAlignment="Top" Height="47" Width="76" Click="btnExport_Click" />
 
     </Grid>
 </Window>

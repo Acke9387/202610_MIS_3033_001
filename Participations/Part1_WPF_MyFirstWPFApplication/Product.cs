@@ -19,7 +19,10 @@ namespace Part1_WPF_MyFirstWPFApplication
         }
 
 
-
+        public override string ToString()
+        {
+            return $"{Name} - {Category} - {Price.ToString("C")}";
+        }
 
     }
 }
