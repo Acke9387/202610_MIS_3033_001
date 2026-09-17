@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPF_Classes_And_Files_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Classes_And_Files_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FFE56E6E">
+    <Grid>
+        <ListBox x:Name="lstAmex" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,39,537,217" Background="White" OpacityMask="Black"/>
+        <Label Content="Amex" HorizontalAlignment="Left" Margin="117,8,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstVisa" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,39,22,217" Background="White" OpacityMask="Black"/>
+        <Label Content="Visa" HorizontalAlignment="Left" Margin="632,8,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstDiners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,252,537,4" Background="White" OpacityMask="Black"/>
+        <Label Content="Diners" HorizontalAlignment="Left" Margin="117,221,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstMastercard" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,252,22,4" Background="White" OpacityMask="Black"/>
+        <Label Content="Mastercard" HorizontalAlignment="Left" Margin="632,221,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
