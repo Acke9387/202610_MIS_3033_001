@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,22 +9,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF_Classes_And_Files_2
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow1ListBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow1ListBox : Window
     {
         List<Sale> salesList = new List<Sale>();
-
-        public MainWindow()
+        public MainWindow1ListBox()
         {
             InitializeComponent();
-
             string[] linesOfFile = File.ReadAllLines("SalesJan2009.csv");
             for (int i = 1; i < linesOfFile.Length; i++)
             {
@@ -37,56 +36,35 @@ namespace WPF_Classes_And_Files_2
                 sale.PaymentType = partsOfLine[3].Trim();
                 sale.Name = partsOfLine[4].Trim();
                 sale.Country = partsOfLine[7].Trim();
+
+                if (cboPaymentTypes.Items.Contains(sale.PaymentType) == false)
+                {
+                    cboPaymentTypes.Items.Add(sale.PaymentType);
+                }
+
                 salesList.Add(sale);
             }
 
-            PopulateListBox("Amex");
-            PopulateListBox("Visa");
-            PopulateListBox("Mastercard");
-            PopulateListBox("Diners");
-
+            PopulateListBox("All");
         }
 
         private void PopulateListBox(string paymentType)
         {
+            lstSales.Items.Clear();
             foreach (Sale s in salesList)
             {
-
-                if (paymentType.ToLower() == "amex")
+                if(paymentType.ToLower() == "all" || s.PaymentType == paymentType)
                 {
-                    if (s.PaymentType.ToLower() == "amex")
-                    {
-                        lstAmex.Items.Add(s);
-                    }
-                }
-                else if (paymentType.ToLower() == "visa")
-                {
-                    if (s.PaymentType.ToLower() == "visa")
-                    {
-                        lstVisa.Items.Add(s);
-                    }
-                }
-                else if (paymentType.ToLower() == "diners")
-                {
-                    if (s.PaymentType.ToLower() == "diners")
-                    {
-                        lstDiners.Items.Add(s);
-                    }
-                }
-                else if (paymentType.ToLower() == "mastercard")
-                {
-                    if (s.PaymentType.ToLower() == "mastercard")
-                    {
-                        lstMastercard.Items.Add(s);
-                    }
+                    lstSales.Items.Add(s);
                 }
             }
         }
 
-        private void btnOpenWindow_Click(object sender, RoutedEventArgs e)
+        private void cboPaymentTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainWindow1ListBox newwindow = new MainWindow1ListBox();
-            newwindow.Show();
+            string selectedPaymentType = cboPaymentTypes.SelectedItem.ToString();
+
+            PopulateListBox(selectedPaymentType);
         }
     }
 }
