@@ -23,6 +23,8 @@ namespace WPF_Classes_And_Files_2
         {
             InitializeComponent();
             string[] linesOfFile = File.ReadAllLines("SalesJan2009.csv");
+            cboPaymentTypes.Items.Add("All");
+
             for (int i = 1; i < linesOfFile.Length; i++)
             {
                 //       0            1      2          3      4    5      6     7           8            9         10       11

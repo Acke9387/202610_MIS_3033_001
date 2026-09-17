@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#FFE56E6E">
     <Grid>
-        <ListBox x:Name="lstAmex" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,39,537,217" Background="White" OpacityMask="Black"/>
+        <ListBox x:Name="lstAmex" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,39,537,217" Background="White" OpacityMask="Black" SelectionChanged="lst_SelectionChanged"/>
         <Label Content="Amex" HorizontalAlignment="Left" Margin="117,8,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lstVisa" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,39,22,217" Background="White" OpacityMask="Black"/>
+        <ListBox x:Name="lstVisa" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,39,22,217" Background="White" OpacityMask="Black" SelectionChanged="lst_SelectionChanged"/>
         <Label Content="Visa" HorizontalAlignment="Left" Margin="632,8,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lstDiners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,252,537,4" Background="White" OpacityMask="Black"/>
+        <ListBox x:Name="lstDiners" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,252,537,4" Background="White" OpacityMask="Black" SelectionChanged="lst_SelectionChanged"/>
         <Label Content="Diners" HorizontalAlignment="Left" Margin="117,221,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lstMastercard" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,252,22,4" Background="White" OpacityMask="Black"/>
+        <ListBox x:Name="lstMastercard" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,252,22,4" Background="White" OpacityMask="Black" SelectionChanged="lst_SelectionChanged"/>
         <Label Content="Mastercard" HorizontalAlignment="Left" Margin="632,221,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnOpenWindow" Content="Open Window" HorizontalAlignment="Left" Margin="346,149,0,0" VerticalAlignment="Top" Height="68" Width="96" Click="btnOpenWindow_Click"/>
 

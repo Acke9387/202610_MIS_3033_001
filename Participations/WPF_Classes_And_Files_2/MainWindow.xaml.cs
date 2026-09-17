@@ -88,5 +88,14 @@ namespace WPF_Classes_And_Files_2
             MainWindow1ListBox newwindow = new MainWindow1ListBox();
             newwindow.Show();
         }
+
+        private void lst_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Sale selected = (Sale)((ListBox)sender).SelectedItem;
+            if (selected != null)
+            {
+                MessageBox.Show(selected.Country);
+            }
+        }
     }
 }
