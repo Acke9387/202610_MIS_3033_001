@@ -1,0 +1,21 @@
+﻿<Window x:Class="API_RickAndMorty.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:API_RickAndMorty"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://th.bing.com/th?id=OIF.Gb%2baRyaZ2vzla3XM%2fYX0dQ&amp;w=303&amp;h=180&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.3&amp;pid=1.7&amp;rm=3"/>
+        </Grid.Background>
+        <Label Content="Rick &amp; Morty" HorizontalAlignment="Left" Margin="233,10,0,0" VerticalAlignment="Top" Background="#FFF0E6E6" Width="309" FontSize="48"/>
+        <ComboBox x:Name="cboCharacters" HorizontalAlignment="Left" Margin="73,151,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboCharacters_SelectionChanged"/>
+        <Label Content="Select a character:" HorizontalAlignment="Left" Margin="27,120,0,0" VerticalAlignment="Top" Background="#FFF4DCDC"/>
+        <Label x:Name="lblName"  Content="Select a character:" HorizontalAlignment="Left" Margin="311,147,0,0" VerticalAlignment="Top" Background="#FFF4DCDC" Visibility="Hidden"/>
+        <Image x:Name="imgCharacter" HorizontalAlignment="Left" Height="276" Margin="510,147,0,0" VerticalAlignment="Top" Width="275"/>
+        <ListBox x:Name="lstEpisodes" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="233,268,290,0" SelectionChanged="lstEpisodes_SelectionChanged"/>
+
+    </Grid>
+</Window>
