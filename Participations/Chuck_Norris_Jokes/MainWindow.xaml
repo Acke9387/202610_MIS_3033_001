@@ -1,0 +1,68 @@
+﻿<Window x:Class="Chuck_Norris_Jokes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chuck_Norris_Jokes"
+        mc:Ignorable="d"
+        Title="Chuck Norris Joke Generator" Height="520" Width="900" MinHeight="420" MinWidth="640">
+    <Window.Background>
+        <!-- Nice subtle background image with overlay -->
+        <!-- ampersands in the URL must be escaped for valid XML -->
+        <ImageBrush Stretch="UniformToFill" ImageSource="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;s=4c8e1c8d6c3b8d9f8f2a5b5c9a8e6f3a" />
+    </Window.Background>
+
+    <Grid>
+        <!-- Dark translucent overlay for readability -->
+        <Rectangle Fill="#80000000" />
+
+        <Grid Margin="24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left control panel -->
+            <Border Grid.Column="0" CornerRadius="8" Background="#CCFFFFFF" Padding="16" VerticalAlignment="Top">
+                <StackPanel>
+                    <TextBlock Text="Chuck Norris Joke Generator" FontSize="20" FontWeight="Bold" Foreground="#222" Margin="0 0 0 12" TextWrapping="Wrap" />
+
+                    <TextBlock Text="Category" FontWeight="SemiBold" Foreground="#333" />
+                    <ComboBox x:Name="cboCategory" Margin="0 6 0 12" SelectedIndex="0">    
+                    </ComboBox>
+
+                    <TextBlock Text="Options" FontWeight="SemiBold" Foreground="#333" Margin="0 6 0 4" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button x:Name="GetJokeButton" Width="120" Height="34" Content="Get Joke" Margin="0,0,8,0" Click="GetJokeButton_Click" />
+                        <Button x:Name="ExportButton" Width="120" Height="34" Content="Export Jokes" Click="ExportButton_Click" />
+                    </StackPanel>
+
+                    <TextBlock Text="Tips" FontWeight="SemiBold" Foreground="#333" Margin="0 16 0 6" />
+                    <TextBlock Text="Choose a category and press 'Get Joke' to display a new joke. Use 'Export Jokes' to save collected jokes to a file." TextWrapping="Wrap" Foreground="#444" />
+                </StackPanel>
+            </Border>
+
+            <!-- Right area: joke display -->
+            <Border Grid.Column="1" Margin="16 0 0 0" CornerRadius="8" Background="#BBFFFFFF" Padding="20" VerticalAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Joke" FontSize="16" FontWeight="Bold" Foreground="#222" />
+
+                    <ScrollViewer Grid.Row="1" Margin="0 12 0 12" VerticalScrollBarVisibility="Auto">
+                        <TextBlock x:Name="txtJoke" Text="Click 'Get Joke' to load a Chuck Norris joke here." TextWrapping="Wrap" FontSize="18" Foreground="#111" />
+                    </ScrollViewer>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <!-- Placeholder button for copying the joke; no code-behind required for UI update -->
+                        <Button x:Name="CopyButton" Content="Copy Joke" Width="100" Height="30" Margin="0 0 8 0" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

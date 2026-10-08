@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Chuck_Norris_Jokes/Chuck_Norris_Jokes.csproj" Id="f25fc197-8315-419d-b00d-0192f10a1809" />
   <Project Path="Part1_WPF_MyFirstWPFApplication/Part1_WPF_MyFirstWPFApplication.csproj" />
   <Project Path="WPF_Classes_And_Files_2/WPF_Classes_And_Files_2.csproj" Id="45db62d7-d763-44be-8e93-c4880bb470cc" />
 </Solution>
