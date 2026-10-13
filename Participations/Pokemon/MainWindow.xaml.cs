@@ -30,8 +30,12 @@ namespace Pokemon
                     var pokemonAPI = System.Text.Json.JsonSerializer.Deserialize<PokemonAPI>(json);
                     cboPokemon.ItemsSource = pokemonAPI.results;
                 }
-
             }
+        }
+
+        private void cboPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

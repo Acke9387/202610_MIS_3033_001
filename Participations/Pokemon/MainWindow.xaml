@@ -45,7 +45,7 @@
                 <TextBlock Text="Select a Pokémon" FontSize="18" FontWeight="Bold" Margin="0 0 0 8" Foreground="{StaticResource PrimaryBrush}" />
 
                 <Label x:Name="lblPokemon" Content="Pokemon:" />
-                <ComboBox x:Name="cboPokemon" IsEditable="False" SelectedIndex="-1">
+                <ComboBox x:Name="cboPokemon" IsEditable="False" SelectedIndex="-1" SelectionChanged="cboPokemon_SelectionChanged">
                 </ComboBox>
 
                 <Separator Margin="0 12 0 12" />
