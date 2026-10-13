@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,18 @@ namespace Pokemon
         public MainWindow()
         {
             InitializeComponent();
+
+            using (HttpClient client = new HttpClient())
+            {
+                var response = client.GetAsync("https://pokeapi.co/api/v2/pokemon?limit=1400").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = response.Content.ReadAsStringAsync().Result;
+                    var pokemonAPI = System.Text.Json.JsonSerializer.Deserialize<PokemonAPI>(json);
+                    cboPokemon.ItemsSource = pokemonAPI.results;
+                }
+
+            }
         }
     }
 }
