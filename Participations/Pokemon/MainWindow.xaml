@@ -1,0 +1,92 @@
+﻿<Window x:Class="Pokemon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokemon"
+        mc:Ignorable="d"
+        Title="Pokémon Viewer" Height="520" Width="820" MinHeight="420" MinWidth="600">
+
+    <Window.Resources>
+        <!-- Color palette and styles -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#FF1E3A8A" /> <!-- indigo -->
+        <SolidColorBrush x:Key="AccentBrush" Color="#FFF59E0B" />  <!-- amber -->
+        <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#CCFFFFFF" />
+        <SolidColorBrush x:Key="MutedTextBrush" Color="#666666" />
+
+        <Style TargetType="TextBlock" x:Key="HeaderText">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="PrimaryButtonStyle">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <!-- Background image for a polished look (escape ampersands in URL) -->
+    <Window.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;s=abcd1234" />
+    </Window.Background>
+
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="340" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left panel: selection and details -->
+        <Border Grid.Column="0" Background="{StaticResource PanelBackgroundBrush}" CornerRadius="6" Padding="12" Margin="0 0 12 0">
+            <StackPanel>
+                <TextBlock Text="Select a Pokémon" FontSize="18" FontWeight="Bold" Margin="0 0 0 8" Foreground="{StaticResource PrimaryBrush}" />
+
+                <Label x:Name="lblPokemon" Content="Pokemon:" />
+                <ComboBox x:Name="cboPokemon" IsEditable="False" SelectedIndex="-1">
+                </ComboBox>
+
+                <Separator Margin="0 12 0 12" />
+
+                <TextBlock Text="Details" FontSize="16" FontWeight="SemiBold" Margin="0 0 0 8" Foreground="{StaticResource PrimaryBrush}" />
+
+                <StackPanel Orientation="Horizontal" Margin="0 4 0 4">
+                    <Label x:Name="lblNameTitle" Content="Name:" Width="70" />
+                    <TextBlock x:Name="txtName" Text="-" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 4 0 4">
+                    <Label x:Name="lblWeightTitle" Content="Weight:" Width="70" />
+                    <TextBlock x:Name="txtWeight" Text="-" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 4 0 4">
+                    <Label x:Name="lblHeightTitle" Content="Height:" Width="70" />
+                    <TextBlock x:Name="txtHeight" Text="-" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <TextBlock Text="(Select an entry from the list to view details)" Foreground="{StaticResource MutedTextBrush}" FontSize="12" Margin="0 12 0 0" TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+
+        <!-- Right panel: image and toggle button -->
+        <Border Grid.Column="1" Background="{StaticResource PanelBackgroundBrush}" CornerRadius="6" Padding="12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Viewbox StretchDirection="Both" Stretch="Uniform">
+                    <Image x:Name="imgPokemon" Width="320" Height="320" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Viewbox>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 12 0 0">
+                    <Button x:Name="btnToggleImage" Content="Toggle Picture" Width="120" Height="30" Margin="0 0 8 0" Style="{StaticResource PrimaryButtonStyle}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
