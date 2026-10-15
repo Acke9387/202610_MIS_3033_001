@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,9 @@ namespace Pokemon
     /// </summary>
     public partial class MainWindow : Window
     {
+        PokemonInfo pokemonInfo = null;
+        bool shouldShowFront = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace Pokemon
                 if (response.IsSuccessStatusCode)
                 {
                     var json = response.Content.ReadAsStringAsync().Result;
-                    var pokemonAPI = System.Text.Json.JsonSerializer.Deserialize<PokemonAPI>(json);
+                    PokemonAPI pokemonAPI = JsonConvert.DeserializeObject<PokemonAPI>(json);
                     cboPokemon.ItemsSource = pokemonAPI.results;
                 }
             }
@@ -35,7 +39,45 @@ namespace Pokemon
 
         private void cboPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            PokemonResult selectedPokemon = cboPokemon.SelectedItem as PokemonResult;
 
+            if (selectedPokemon != null)
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = client.GetAsync(selectedPokemon.url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = response.Content.ReadAsStringAsync().Result;
+                        pokemonInfo = JsonConvert.DeserializeObject<PokemonInfo>(json);
+                        txtHeight.Text = pokemonInfo.height.ToString();
+                        txtWeight.Text = pokemonInfo.weight.ToString();
+                        txtName.Text = pokemonInfo.name;
+                        imgPokemon.Source = new BitmapImage(new Uri(pokemonInfo.sprites.front_default));
+                        shouldShowFront = false;
+
+                    }
+
+                }
+            }
+        }
+
+        private void btnToggleImage_Click(object sender, RoutedEventArgs e)
+        {
+            if (pokemonInfo is not null)
+            {
+                if (shouldShowFront == true)
+                {
+                    imgPokemon.Source = new BitmapImage(new Uri(pokemonInfo.sprites.front_default));
+                    shouldShowFront = false;
+
+                }
+                else
+                {
+                    imgPokemon.Source = new BitmapImage(new Uri(pokemonInfo.sprites.back_default));
+                    shouldShowFront = true;
+                }
+            }
         }
     }
 }
