@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="API_RickAndMorty/API_RickAndMorty.csproj" Id="c5462b44-3bfb-46d9-977d-bfe9e10f1651" />
+  <Project Path="EF_FootballSchedules/EF_FootballSchedules.csproj" Id="9ab518d0-9ccd-4eea-bffe-60c8603a2027" />
   <Project Path="IntroductionToWPF/IntroductionToWPF.csproj" />
 </Solution>
