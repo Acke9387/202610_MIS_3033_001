@@ -49,13 +49,32 @@ namespace API_Basic.Controllers
             return Ok(products);
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Product> GetProduct(int id)
+        {
+            
+        }
+
+
+
         [HttpGet("search")]
-        public ActionResult<List<Product>> SearchProducts([FromQuery] string? category, decimal? maxPrice)
+        public ActionResult<List<Product>> SearchProducts([FromQuery] string? category, [FromQuery] decimal? maxPrice)
         {
           
+            if (maxPrice.HasValue && maxPrice < 0)
+            {
+                return BadRequest("maxPrice must be a non-negative value.");
+            }
+
+
             return Ok(filteredProducts.ToList());
         }
 
+        [HttpGet("instock")]
+        public ActionResult<List<Product>> GetInStockProducts()
+        {
+            
+        }
 
 
     }
