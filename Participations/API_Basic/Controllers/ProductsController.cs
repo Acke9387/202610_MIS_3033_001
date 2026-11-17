@@ -52,10 +52,14 @@ namespace API_Basic.Controllers
         [HttpGet("{id}")]
         public ActionResult<Product> GetProduct(int id)
         {
-            
+            var product = products.FirstOrDefault(p => p.ProductId == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+
         }
-
-
 
         [HttpGet("search")]
         public ActionResult<List<Product>> SearchProducts([FromQuery] string? category, [FromQuery] decimal? maxPrice)
@@ -66,6 +70,18 @@ namespace API_Basic.Controllers
                 return BadRequest("maxPrice must be a non-negative value.");
             }
 
+            var filteredProducts = products.AsEnumerable();
+            
+            if (!string.IsNullOrEmpty(category))
+            {
+                filteredProducts = filteredProducts.Where(p => p.Category == category);
+            }
+
+            if (maxPrice.HasValue)
+            {
+                filteredProducts = filteredProducts.Where(p => p.Price <= maxPrice.Value);
+            }
+
 
             return Ok(filteredProducts.ToList());
         }
@@ -73,7 +89,8 @@ namespace API_Basic.Controllers
         [HttpGet("instock")]
         public ActionResult<List<Product>> GetInStockProducts()
         {
-            
+            var inStockProducts = products.Where(p => p.InStock).ToList();
+            return Ok(inStockProducts);
         }
 
 
