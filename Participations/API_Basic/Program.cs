@@ -12,6 +12,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "MyFirstAPI v1");
+    });
 }
 
 app.UseAuthorization();
